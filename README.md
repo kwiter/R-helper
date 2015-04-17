@@ -1,12 +1,12 @@
 # R-helper
 R helper functions
 
-%!in%
+####%!in%
 *    blank not in blank 
 
-rand()
+####rand()
 *    random version of head() or tail()
 
-tapply.matrix()
+####tapply.matrix()
 *    apply tapply to a matrix
 
