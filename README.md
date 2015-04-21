@@ -19,7 +19,7 @@ R helper functions
 ####len
 *    shorten Length
 
-#last
+####last
 *    return last value of vector
 
 
