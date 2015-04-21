@@ -14,10 +14,10 @@ R helper functions
 *    shorten as.numeric()
 
 ####a.c
-*    shorten as.character
+*    shorten as.character()
 
 ####len
-*    shorten Length
+*    shorten length()
 
 ####last
 *    return last value of vector
