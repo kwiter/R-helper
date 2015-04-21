@@ -15,3 +15,16 @@ rand <- function(matrix,n=6){ # random version of head
 tapply.matrix <- function(mat,index,funct){ #tapply on matrix mckFUNCTIONS
   apply(mat,2,function(x){ tapply(x,index,funct,na.rm=T)})  
 }
+
+#short as .numeric
+a.n <- function(x){as.numeric(x)}#short as.numeric
+
+#short as.character
+a.c <- function(x){as.character(x)}#short as.character
+
+##shorten Length
+len <- function(x){length(x)}
+
+#return last value
+last <- function(vec){rev(vec)[1]}
+
