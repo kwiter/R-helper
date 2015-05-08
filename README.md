@@ -32,3 +32,9 @@ R helper functions
 *    gives distances between an (x,y) point  and an (x,y) matrix
 
 
+####angleTo
+*     angle in degrees between (x,y) and (x,y) matrix from the x-axis -90 to 90 
+
+
+####spatialQuant 
+*    calculate the a quantile in 2D at binned angles from the median
