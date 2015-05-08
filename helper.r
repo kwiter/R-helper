@@ -33,6 +33,14 @@ unlistSplit = function(vec,sep="-"){
   matrix(unlist(strsplit(vec,split=sep)),nrow = length(vec),ncol=str_count(vec[1],sep)+1,byrow=T)
 }
 
+#turns ones to zeros zeros to ones
+invert <- function(x){
+  whr = which(x == 1)
+  x[x == 0] = 1
+  x[whr] = 0
+  x
+}
+
 #proper predictive score
 getScoreNorm <- function(x,mu,xvar){
   # Gneiting and Raferty's proper scoring rule
