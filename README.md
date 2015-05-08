@@ -22,6 +22,12 @@ R helper functions
 ####last
 *    return last value of vector
 
+####unlistSplit
+*    split vector(vec) string by(sep) and return matrix
+
+####invert
+*    turns ones to zeros zeros to ones
+
 ####getScoreNorm
 *    get proper predictive score for model fit from Gneiting and Raferty
 
