@@ -79,3 +79,64 @@ distance = function(valM,M){
   
 }
 
+#angle in degrees between (x,y) and (x,y) matrix from the x-axis -90 to 90 and indicators(tx,ty) of quadrants
+angleTo <- function(valM,M){ #output in degrees
+  #valM: (x,y) angles calculated from
+  #M: (x,y) matrix angles calculated to
+  #output:
+    #ang: angle in degrees
+    #tx -1 or 1 = left of valM or right of valM
+    #ty -1 or 1 = below valM or above valM
+  tx = M[,1]-valM[1]
+  ty = M[,2]-valM[2]
+  ang = atan(ty/tx) * 360/(2*pi)
+  tx = (tx > 0) - (tx < 0) 
+  ty = (ty > 0) - (ty < 0) 
+  list(ang = ang,tx=tx,ty=ty)
+}
+
+#calculate the a quantile in 2D at binned angles from the median
+spatialQuant = function(xyMat,nbrks = 10,quants = c(.025,.975)){
+#xyMat: matrix of [x,y]
+#nbrks: number of breaks to split angle up by
+#quants: c(lower,upper) quantile to use
+  stdX = sd(xyMat[,1],na.rm=T)
+  stdY = sd(xyMat[,2],na.rm=T)
+  
+  
+  xyMat[,1] = (xyMat[,1]) /stdX
+  xyMat[,2] = (xyMat[,2]) /stdY
+  
+  mx = median(xyMat[,1])
+  my = median(xyMat[,2])
+  
+  tmp = angleTo(c(mx,my),xyMat)
+  angs = tmp$ang
+  tx = tmp$tx
+  ty = tmp$ty
+  quad = rep(0,len(tx))
+  quad[tx ==  1 & ty ==  1] = 1
+  quad[tx ==  1 & ty == -1] = 1
+  quad[tx == -1 & ty == -1] = -1
+  quad[tx == -1 & ty ==  1] = -1
+  
+  dis = distance(c(mx,my),xyMat)
+  
+  
+  breaks <- seq(-90,90,length = nbrks)
+  bins <- cut(angs,breaks = breaks)
+  
+  iBin = sort(unique(bins))
+  tmp = matrix(NA,len(iBin),3)
+  tmp[,1] = breaks[-1] - diff(breaks)[1]/2
+  for(i in 1:len(iBin)){
+    whr = which(bins == iBin[i])
+    tmp[i,c(2,3)] = quantile(dis[whr] * quad[whr],quants)
+  }
+  xs = (cos(c(tmp[,1],tmp[,1])*2*pi/360)*c(tmp[,2],tmp[,3]) + mx)*stdX 
+  ys = (sin(c(tmp[,1],tmp[,1])*2*pi/360)*c(tmp[,2],tmp[,3]) + my)*stdY 
+  cbind(xs,ys)
+}
+
+
+
