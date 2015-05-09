@@ -164,4 +164,24 @@ fuzWHICH <- function(DFwant, DFref){  #Fuzzy match
   return(out)
 }
 ##
-###
+
+
+#####
+#### this function returns the index of max ormin 'which.max' number needs to be middle of odd roll num
+localMS <- function(inDATA,period,MorM ='MAX'){ #find local min or max
+	#inDATA: data
+	#period give time period to find extrem values
+	#MorM: find MIN or MAX
+	require(zoo)
+	if(period%%2 == 0)stop('Period must be odd')
+	useDATA <- c(inDATA,rep(mean(inDATA,na.rm=T),period))
+	if(MorM == 'MAX'){xz <- as.zoo(useDATA)
+		rxz <- rollapply(xz, period, function(useDATA) which.max(useDATA)==quantile(1:period,.5))
+		}
+	if(MorM == 'MIN'){xz <- as.zoo(useDATA)
+		rxz <- rollapply(xz, period, function(useDATA) which.min(useDATA)==quantile(1:period,.5))
+		}
+	
+	index(rxz)[coredata(rxz)] 
+}
+
