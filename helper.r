@@ -204,3 +204,34 @@ CENSTAND <- function(xXx,numSTDS = 1){ #z-scores mckFUNCTIONS
   }
   cen
 } 
+
+###
+##factor to a dummy variable
+facTOdummy <- function(fact, firstZERO = T){ #makes dummy variables
+  #fact: factor
+  #firstZERO: make the first factor zero if factor has four levels 3 columns are created
+  if(firstZERO == T){
+  is <- sort(unique(fact))
+  numIS <- length(is)
+  dumbMAT <- matrix(0,length(fact),(numIS-1))
+  
+  for(i in 2:numIS){
+    dumbMAT[which(fact == is[i]),i-1] <- 1
+  }
+  colnames(dumbMAT) <- is[-1]
+  }
+  
+  if(firstZERO == F){
+    is <- sort(unique(fact))
+    numIS <- length(is)
+    dumbMAT <- matrix(0,length(fact),(numIS))
+    
+    for(i in 1:numIS){
+      dumbMAT[which(fact == is[i]),i] <- 1
+    }
+    colnames(dumbMAT) <- is
+  }
+  
+  dumbMAT
+}
+
