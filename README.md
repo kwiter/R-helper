@@ -45,8 +45,8 @@ R helper functions
 ####spatialQuant 
 *    calculate the a quantile in 2D at binned angles from the median
 
-SpatialQuant() and spline.poly() were used to draw the 95% bounding box around the inner point cloud 
 ![Image](https://cloud.githubusercontent.com/assets/6601105/7544206/14c7095a-f599-11e4-824b-8082e9256fb2.png?raw=true)
+FIGURE SpatialQuant() and spline.poly() were used to draw the 95% bounding box around the inner point cloud 
 
 ####Fuzzy MATCH 
 fuzWHICH()
