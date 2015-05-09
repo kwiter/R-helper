@@ -147,4 +147,21 @@ spatialQuant = function(xyMat,nbrks = 10,quants = c(.025,.975)){
 }
 
 
-
+###Fuzzy MATCH 
+fuzWHICH <- function(DFwant, DFref){  #Fuzzy match
+#DFwant: value to match
+#DFref: values to match to
+  if(length(DFwant) == 1){
+    whichTIME <- which((abs(DFwant - DFref)) == min(abs(DFref - DFwant))) 
+    out = whichTIME[1]
+  }else{
+    out = numeric()
+    for(i in 1:length(DFwant)){
+    out <- c(out,which((abs(DFwant[i] - DFref)) == min(abs(DFref - DFwant[i])))[1]) 
+    out
+    }
+  }
+  return(out)
+}
+##
+###
