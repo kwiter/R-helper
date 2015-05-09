@@ -51,9 +51,12 @@ SpatialQuant() and spline.poly() were used to draw the 95% bounding box around t
 ####Fuzzy MATCH 
 fuzWHICH()
 *    Return the closest match to a a value
-*    
-#########Local minimums and maximums
+
+####Local minimums and maximums
 localMS()
 *    Returns the index of max or min 
 *    'which.max' number needs to be middle of odd roll num
+*    
+####Make z-scores
+*    Subtracts the mean and divides by standard deviations
 
