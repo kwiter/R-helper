@@ -58,7 +58,12 @@ localMS()
 *    'which.max' number needs to be middle of odd roll num
 
 ####Make z-scores
+zScore()
 *    Subtracts the mean and divides by standard deviations
 
 ####Turn factors in dummy variables
+facTOdummy()
 *    Returns vector or matrix of 0 and 1 indicating treatments
+
+####Find the mode of a distribution
+*    Returns mode of distribution
