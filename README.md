@@ -56,7 +56,7 @@ fuzWHICH()
 localMS()
 *    Returns the index of max or min 
 *    'which.max' number needs to be middle of odd roll num
-*    
+
 ####Make z-scores
 *    Subtracts the mean and divides by standard deviations
 
