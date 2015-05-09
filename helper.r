@@ -185,7 +185,8 @@ localMS <- function(inDATA,period,MorM ='MAX'){ #find local min or max
 	index(rxz)[coredata(rxz)] 
 }
 
-######## turns in z-scores, use 2 stds to compare between covariates and factors
+######## turns in z-scores, use 2 stds to compare between covariates and factors(Gelman)
+
 CENSTAND <- function(xXx,numSTDS = 1){ #z-scores mckFUNCTIONS
   #xXx: matrix or vector to be converted
   #numSTDS: number of stds 
