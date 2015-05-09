@@ -187,7 +187,7 @@ localMS <- function(inDATA,period,MorM ='MAX'){ #find local min or max
 
 ######## turns in z-scores, use 2 stds to compare between covariates and factors(Gelman)
 
-CENSTAND <- function(xXx,numSTDS = 1){ #z-scores mckFUNCTIONS
+zScore <- function(xXx,numSTDS = 1){ #z-scores mckFUNCTIONS
   #xXx: matrix or vector to be converted
   #numSTDS: number of stds 
   dimxXx = length(dim(rep(1,10)))
@@ -235,3 +235,9 @@ facTOdummy <- function(fact, firstZERO = T){ #makes dummy variables
   dumbMAT
 }
 
+#####find mode
+my.mode <- function(x) { #find mode
+  #x: data
+  d <- density(x)
+  d$x[which.max(d$y)]
+}
