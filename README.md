@@ -66,4 +66,5 @@ facTOdummy()
 *    Returns vector or matrix of 0 and 1 indicating treatments
 
 ####Find the mode of a distribution
+my.mode()
 *    Returns mode of distribution
