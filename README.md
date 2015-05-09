@@ -48,6 +48,12 @@ R helper functions
 SpatialQuant() and spline.poly() were used to draw the 95% bounding box around the inner point cloud 
 ![Image](https://cloud.githubusercontent.com/assets/6601105/7544206/14c7095a-f599-11e4-824b-8082e9256fb2.png?raw=true)
 
-#####Fuzzy MATCH 
+####Fuzzy MATCH 
 fuzWHICH()
 *    Return the closest match to a a value
+*    
+#########Local minimums and maximums
+localMS()
+*    Returns the index of max or min 
+*    'which.max' number needs to be middle of odd roll num
+
