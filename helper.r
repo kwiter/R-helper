@@ -185,3 +185,21 @@ localMS <- function(inDATA,period,MorM ='MAX'){ #find local min or max
 	index(rxz)[coredata(rxz)] 
 }
 
+######## turns in z-scores, use 2 stds to compare between covariates and factors
+CENSTAND <- function(xXx,numSTDS = 1){ #z-scores mckFUNCTIONS
+  #xXx: matrix or vector to be converted
+  #numSTDS: number of stds 
+  dimxXx = length(dim(rep(1,10)))
+  if(dimxXx == 0){ cen <- xXx - mean(xXx,na.rm=T) 
+    if(numSTDS != 0){ cen <- cen/(numSTDS*sd(xXx,na.rm=T)) }
+  }
+  if(dimxXx > 1){
+    xmean <- apply(xXx,2,mean,na.rm=T) 
+    xsd <- numSTDS*apply(xXx,2,sd,na.rm=T)
+    cen <- (xXx - matrix(xmean,nrow(xXx),ncol(xXx),byrow=T) )
+    if(numSTDS != 0){
+      cen <- cen/(matrix(xsd,nrow(xXx),ncol(xXx),byrow=T) )
+    }
+  }
+  cen
+} 
