@@ -60,3 +60,5 @@ localMS()
 ####Make z-scores
 *    Subtracts the mean and divides by standard deviations
 
+####Turn factors in dummy variables
+*    Returns vector or matrix of 0 and 1 indicating treatments
