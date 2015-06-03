@@ -241,3 +241,23 @@ my.mode <- function(x) { #find mode
   d <- density(x)
   d$x[which.max(d$y)]
 }
+
+#####progress bar
+progress = function(count, total = null, interval = 1){ #progress bar
+  #count: counter of loop
+  #total: number when loop completes
+  #interval: interval to update counter
+  width = getOption("width")/2 - 4
+  if(count%%interval == 0){
+    Ltotal = nchar(total)
+    Lcount = nchar(count)
+    cat("\r",paste(count, rep(" ",Ltotal-Lcount),
+                   " [",
+                   paste(rep("~",floor(width*count/total)),collapse = ""),
+                   paste(rep(" ",ceiling(width*(1-(count/total)))),collapse = ""),
+                   "] ",round(100*count/total,2),"%",sep=""))
+    flush.console()
+  }
+  if(count == total){cat("\n Complete \n")}
+}
+
