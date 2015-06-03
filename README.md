@@ -70,3 +70,7 @@ facTOdummy()
 ####Find the mode of a distribution
 my.mode()
 *    Returns mode of distribution
+
+####Progress bar for a loop
+progress()
+*    Automatic progress bar taht updates at interval
